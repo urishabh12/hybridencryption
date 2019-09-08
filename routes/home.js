@@ -28,4 +28,26 @@ router.post("/preprocess", async (req, res) => {
   return res.status(200).send({ key: newKey, publicKey: publicKey });
 });
 
+router.post("/adddoc", async (req, res) => {
+  const id = jwt.decode(req.get("auth-token"), config.get("jwtPrivateKey"));
+
+  const doc = new Doc({
+    user: id,
+    heading: req.body.heading,
+    content: req.body.heading
+  });
+
+  await doc.save();
+
+  res.status(200).send(doc);
+});
+
+router.post("/getdoc", async (req, res) => {
+  const id = jwt.decode(req.get("auth-token"), config.get("jwtPrivateKey"));
+
+  const result = await Doc.find({ user: id });
+
+  res.status(200).send(result);
+});
+
 module.exports = router;
