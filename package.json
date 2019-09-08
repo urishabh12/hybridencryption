@@ -1,0 +1,28 @@
+{
+  "name": "hybridencryption",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/urishabh12/hybridencryption.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/urishabh12/hybridencryption/issues"
+  },
+  "homepage": "https://github.com/urishabh12/hybridencryption#readme",
+  "dependencies": {
+    "aes-js": "^3.1.2",
+    "body-parser": "^1.19.0",
+    "config": "^3.2.2",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "lodash": "^4.17.15",
+    "mongoose": "^5.6.13"
+  }
+}
