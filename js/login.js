@@ -1,10 +1,11 @@
-$(".my-form").on("submit", function() {
+$(".my-form").submit(function(event) {
   event.preventDefault();
+  alert("add");
   $.ajax({
     url: "http://localhost:2000/api/users/login",
     type: "post",
     data: {
-      email: $("#username").val(),
+      username: $("#username").val(),
       password: $("#password").val()
     },
     dataType: "json",

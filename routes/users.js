@@ -16,11 +16,11 @@ router.post("/registration", async (req, res) => {
   user.password = await bcrypt.hash(user.password, salt);
   await user.save();
 
-  res.status(200).send(user);
+  return res.status(200).send(user);
 });
 
 router.post("/login", async (req, res) => {
-  let user = await User.findOne({ email: req.body.email });
+  let user = await User.findOne({ username: req.body.username });
   if (!user) return res.status(400).send("Wrong ID or Password");
 
   const result = await bcrypt.compare(req.body.password, user.password);
@@ -28,7 +28,7 @@ router.post("/login", async (req, res) => {
 
   const token = jwt.sign({ _id: user._id }, config.get("jwtPrivateKey"));
 
-  res
+  return res
     .status(200)
     .header("auth-token", token)
     .send({ message: "Success" });
