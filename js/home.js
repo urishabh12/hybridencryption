@@ -30,3 +30,33 @@ $.ajax({
     console.log(jqXHR, textStatus, errorThrown);
   }
 });
+
+$.ajaxSetup({
+  headers: {
+    "auth-token": localStorage.getItem("auth-token")
+  }
+});
+
+$(".my-form").submit(function(event) {
+  event.preventDefault();
+  var key = localStorage.getItem("aeskey");
+  key = JSON.parse(key);
+  var textBytes = aesjs.utils.utf8.toBytes($("#content").val());
+  var aesCtr = new aesjs.ModeOfOperation.ctr(key, new aesjs.Counter(5));
+  var encryptedBytes = aesCtr.encrypt(textBytes);
+  $.ajax({
+    url: "http://localhost:2000/api/home/adddoc",
+    type: "post",
+    data: {
+      heading: $("#heading").val(),
+      content: JSON.stringify(encryptedBytes)
+    },
+    dataType: "json",
+    success: function(data, textStatus, request) {
+      location.reload();
+    },
+    error: function(jqXHR, textStatus, errorThrown) {
+      console.log(jqXHR, textStatus, errorThrown);
+    }
+  });
+});

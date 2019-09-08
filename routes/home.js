@@ -32,9 +32,9 @@ router.post("/adddoc", async (req, res) => {
   const id = jwt.decode(req.get("auth-token"), config.get("jwtPrivateKey"));
 
   const doc = new Doc({
-    user: id,
+    user: id._id,
     heading: req.body.heading,
-    content: req.body.heading
+    content: req.body.content
   });
 
   await doc.save();

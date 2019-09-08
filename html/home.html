@@ -4,8 +4,13 @@
     <title>Home</title>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
     <link rel="stylesheet" href="http://localhost:2000/css/home.css" />
+    <script
+      type="text/javascript"
+      src="https://cdn.rawgit.com/ricmoo/aes-js/e27b99df/index.js"
+    ></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   </head>
+
   <body>
     <div class="w3-container" style="width: 80%; margin: auto;">
       <h1 class="w3-theme-d4 w3-round-large" style="text-align: center">
@@ -23,10 +28,27 @@
         <p id="key" style="word-wrap: break-word;"></p>
       </div>
       <div style="float: left;" class="w3-margin-top w3-margin-left">
-        <form>
-          <input class="w3-round-large" style="width: 150%; border:2px solid purple" type="text" placeholder="Title" id="heading">
-          <input class="w3-round-large" style="width: 150%; margin-top: 20px; border:2px solid purple; padding: 70px 20px" type="text" placeholder="Content" id="content">
-          <input class="w3-round-large w3-theme-d3" style="margin-top: 20px; border:2px solid purple" type="submit" value="Submit">
+        <form class="my-form">
+          <input
+            class="w3-round-large"
+            style="width: 150%; border:2px solid purple"
+            type="text"
+            placeholder="Title"
+            id="heading"
+          />
+          <input
+            class="w3-round-large"
+            style="width: 150%; margin-top: 20px; border:2px solid purple; padding: 70px 20px"
+            type="text"
+            placeholder="Content"
+            id="content"
+          />
+          <input
+            class="w3-round-large w3-theme-d3"
+            style="margin-top: 20px; border:2px solid purple"
+            type="submit"
+            value="Submit"
+          />
         </form>
       </div>
     </div>
