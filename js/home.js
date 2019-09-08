@@ -84,8 +84,8 @@ function tablee(json) {
     $("table tbody").append(tr);
     $("#tblu").on("click", function(event) {
       event.preventDefault();
-      console.log("IN");
-      console.log($(this).attr("name"));
+      localStorage.setItem("id", $(this).attr("name"));
+      window.open("http://localhost:2000/view", "_self");
     });
   }
   $("#data").after('<div class="w3-margin-left w3-margin-top" id="nav"></div>');

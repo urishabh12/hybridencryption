@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Home</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+    <link rel="stylesheet" href="http://localhost:2000/css/home.css" />
+    <script
+      type="text/javascript"
+      src="https://cdn.rawgit.com/ricmoo/aes-js/e27b99df/index.js"
+    ></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  </head>
+
+  <body>
+    <div class="w3-container" style="width: 80%; margin: auto;">
+      <h1 class="w3-theme-d4 w3-round-large" style="text-align: center">
+        Hybrid Encryption Elgamal + AES
+      </h1>
+      <div
+        class="w3-container w3-theme-d3 w3-round-large w3-margin-top w3-margin-left"
+        style="width: 15%; float: left;"
+      >
+        <h3>Elgamal Key</h3>
+        <p id="publicKey"></p>
+        <p id="privateKey"></p>
+        <hr />
+        <h3>AES Key</h3>
+        <p id="key" style="word-wrap: break-word;"></p>
+      </div>
+      <div style="float: left;">
+        <p id="text"></p>
+      </div>
+    </div>
+    <script src="http://localhost:2000/js/home.js"></script>
+  </body>
+</html>

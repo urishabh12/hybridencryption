@@ -47,7 +47,13 @@ router.get("/getdoc", async (req, res) => {
 
   const result = await Doc.find({ user: id });
 
-  res.status(200).send(result);
+  return res.status(200).send(result);
+});
+
+router.get("/getonedoc/:id", async (req, res) => {
+  const result = await Doc.find({ _id: id });
+
+  return res.status(200).send(result);
 });
 
 module.exports = router;
