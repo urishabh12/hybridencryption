@@ -42,7 +42,7 @@ router.post("/adddoc", async (req, res) => {
   res.status(200).send(doc);
 });
 
-router.post("/getdoc", async (req, res) => {
+router.get("/getdoc", async (req, res) => {
   const id = jwt.decode(req.get("auth-token"), config.get("jwtPrivateKey"));
 
   const result = await Doc.find({ user: id });
