@@ -78,18 +78,11 @@ function tablee(json) {
   var tr;
   for (var i = 0; i < json.length; i++) {
     tr = $("<tr/>");
-    let link =
-      "window.open('" +
-      "http://localhost:2000/api/users/single/" +
-      json[i].user +
-      "'" +
-      "," +
-      "'_self'" +
-      ")";
+    let link = "doit(" + json[i]._id + ")";
     tr.append("<td onclick=" + link + ">" + json[i].heading + "</td>");
     $("table tbody").append(tr);
   }
-  $("#data").after('<div id="nav"></div>');
+  $("#data").after('<div class="w3-margin-left w3-margin-top" id="nav"></div>');
   var rowsShown = 5;
   var rowsTotal = $("#data tbody tr").length;
   var numPages = rowsTotal / rowsShown;
@@ -115,4 +108,9 @@ function tablee(json) {
       .css("display", "table-row")
       .animate({ opacity: 1 }, 300);
   });
+}
+
+function doit(id) {
+  localStorage.setItem("id", id);
+  window.open("http://localhost:2000/view", "_self");
 }

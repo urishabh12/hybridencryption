@@ -32,6 +32,10 @@ app.get("/home", (req, res) => {
   res.sendFile(__dirname + "/html/home.html");
 });
 
+app.get("/view", (req, res) => {
+  res.sendFile(__dirname + "/html/view.html");
+});
+
 app.get("/js/:name", (req, res) => {
   res.status(200).sendFile(__dirname + "/js/" + req.params.name);
 });
