@@ -78,9 +78,15 @@ function tablee(json) {
   var tr;
   for (var i = 0; i < json.length; i++) {
     tr = $("<tr/>");
-    let link = "doit(" + json[i]._id + ")";
-    tr.append("<td onclick=" + link + ">" + json[i].heading + "</td>");
+    tr.append(
+      "<td id='tblu' name=" + json[i]._id + ">" + json[i].heading + "</td>"
+    );
     $("table tbody").append(tr);
+    $("#tblu").on("click", function(event) {
+      event.preventDefault();
+      console.log("IN");
+      console.log($(this).attr("name"));
+    });
   }
   $("#data").after('<div class="w3-margin-left w3-margin-top" id="nav"></div>');
   var rowsShown = 5;
