@@ -17,12 +17,14 @@ $.ajax({
   data: result,
   dataType: "json",
   success: function(data, textStatus, request) {
-    let privateKey = data.publicKey ** key % prime;
+    let privateKey = publicKey ** data.publicKey % prime;
     for (var i = 0; i < data.key.length; ++i) {
       data.key[i] = data.key[i] / privateKey;
     }
     localStorage.setItem("aeskey", JSON.stringify(data.key));
-    console.log(publicKey, privateKey);
+    $("#publicKey").text("Public Key: " + publicKey);
+    $("#privateKey").text("Private Key: " + privateKey);
+    $("#key").text(JSON.stringify(data.key));
   },
   error: function(jqXHR, textStatus, errorThrown) {
     console.log(jqXHR, textStatus, errorThrown);

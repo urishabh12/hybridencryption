@@ -24,7 +24,6 @@ router.post("/preprocess", async (req, res) => {
     var temp = key[i] * privateKey;
     newKey.push(temp);
   }
-  console.log(privateKey, publicKey);
 
   return res.status(200).send({ key: newKey, publicKey: publicKey });
 });
