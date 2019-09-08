@@ -13,7 +13,7 @@
       </h1>
       <div
         class="w3-container w3-theme-d3 w3-round-large w3-margin-top w3-margin-left"
-        style="width: 15%;"
+        style="width: 15%; float: left;"
       >
         <h3>Elgamal Key</h3>
         <p id="publicKey"></p>
@@ -22,8 +22,12 @@
         <h3>AES Key</h3>
         <p id="key" style="word-wrap: break-word;"></p>
       </div>
-      <div>
-        <h1>Right top</h1>
+      <div style="float: left;" class="w3-margin-top w3-margin-left">
+        <form>
+          <input class="w3-round-large" style="width: 150%; border:2px solid purple" type="text" placeholder="Title" id="heading">
+          <input class="w3-round-large" style="width: 150%; margin-top: 20px; border:2px solid purple; padding: 70px 20px" type="text" placeholder="Content" id="content">
+          <input class="w3-round-large w3-theme-d3" style="margin-top: 20px; border:2px solid purple" type="submit" value="Submit">
+        </form>
       </div>
     </div>
     <script src="http://localhost:2000/js/home.js"></script>
