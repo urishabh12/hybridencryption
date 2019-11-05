@@ -44,21 +44,24 @@ $(".my-form").submit(function(event) {
   var textBytes = aesjs.utils.utf8.toBytes($("#content").val());
   var aesCtr = new aesjs.ModeOfOperation.ctr(key, new aesjs.Counter(5));
   var encryptedBytes = aesCtr.encrypt(textBytes);
-  $.ajax({
-    url: "http://localhost:2000/api/home/adddoc",
-    type: "post",
-    data: {
-      heading: $("#heading").val(),
-      content: JSON.stringify(encryptedBytes)
-    },
-    dataType: "json",
-    success: function(data, textStatus, request) {
-      location.reload();
-    },
-    error: function(jqXHR, textStatus, errorThrown) {
-      console.log(jqXHR, textStatus, errorThrown);
-    }
-  });
+  var encryptedHex = aesjs.utils.hex.fromBytes(encryptedBytes);
+  $("#encrypted").text("Encrypted Text: " + encryptedHex);
+  $("#encrypteddiv").css("display", "inline");
+  // $.ajax({
+  //   url: "http://localhost:2000/api/home/encrypt",
+  //   type: "post",
+  //   data: {
+  //     heading: $("#heading").val(),
+  //     content: JSON.stringify(encryptedBytes)
+  //   },
+  //   dataType: "json",
+  //   success: function(data, textStatus, request) {
+
+  //   },
+  //   error: function(jqXHR, textStatus, errorThrown) {
+  //     console.log(jqXHR, textStatus, errorThrown);
+  //   }
+  // });
 });
 
 $.ajax({

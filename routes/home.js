@@ -42,6 +42,14 @@ router.post("/adddoc", async (req, res) => {
   res.status(200).send(doc);
 });
 
+router.post("/decrypt", async (req, res) => {
+  let encryptedBytes = req.body.content;
+  let aesCtr = new aesjs.ModeOfOperation.ctr(key, new aesjs.Counter(5));
+  let decryptedBytes = aesCtr.decrypt(encryptedBytes);
+  let decryptedText = aesjs.utils.utf8.fromBytes(decryptedBytes);
+  return res.status(200).send({ text: decryptedText });
+});
+
 router.get("/getdoc", async (req, res) => {
   const id = jwt.decode(req.get("auth-token"), config.get("jwtPrivateKey"));
 
