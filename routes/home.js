@@ -50,7 +50,7 @@ router.post("/decrypt", async (req, res) => {
   return res.status(200).send({ text: decryptedText });
 });
 
-router.get("/getdoc", async (req, res) => {
+router.get("/getAllDoc", async (req, res) => {
   const id = jwt.decode(req.get("auth-token"), config.get("jwtPrivateKey"));
 
   const result = await Doc.find({ user: id });

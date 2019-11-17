@@ -1,7 +1,7 @@
 const config = require("config");
 const jwt = require("jsonwebtoken");
 const mongoose = require("mongoose");
-const db = "mongodb://localhost/ecommerce";
+const db = "mongodb://localhost/hybrid";
 const bodyParser = require("body-parser");
 const express = require("express");
 const app = express();
@@ -34,6 +34,14 @@ app.get("/home", (req, res) => {
 
 app.get("/view", (req, res) => {
   res.sendFile(__dirname + "/html/view.html");
+});
+
+app.get("/registration", (req, res) => {
+  res.sendFile(__dirname + "/html/registration.html");
+});
+
+app.get("/list", (req, res) => {
+  res.sendFile(__dirname + "/html/list.html");
 });
 
 app.get("/js/:name", (req, res) => {

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Home</title>
+    <title>List</title>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
     <link rel="stylesheet" href="http://localhost:2000/css/home.css" />
     <script
@@ -35,41 +35,17 @@
           Logout
         </button>
       </div>
-      <div style="float: left;" class="w3-margin-top w3-margin-left">
-        <form class="my-form">
-          <input
-            class="w3-round-large"
-            style="width: 150%; border:2px solid purple"
-            type="text"
-            placeholder="Title"
-            id="heading"
-          />
-          <input
-            class="w3-round-large"
-            style="width: 150%; margin-top: 20px; border:2px solid purple; padding: 70px 20px"
-            type="text"
-            placeholder="Content"
-            id="content"
-          />
-          <input
-            class="w3-round-large w3-theme-d3"
-            style="margin-top: 20px; border:2px solid purple"
-            type="submit"
-            value="Submit"
-          />
-        </form>
-      </div>
-      <div
-        id="encrypteddiv"
-        style="float: left;word-wrap: break-word;width: 80%;border:2px solid purple;display:none;"
-        class="w3-margin-top w3-margin-left w3-round-large"
-      >
-        <p
-          id="encrypted"
-          class="w3-margin-top w3-margin-bottom w3-margin-right w3-margin-left"
-        ></p>
+      <div style="float: left;width:70%" class="w3-margin-top w3-margin-left">
+        <table class="w3-table-all w3-centered w3-hoverable w3-card-4">
+          <thead>
+            <tr class="w3-theme-d4">
+              <th>Filename</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
       </div>
     </div>
-    <script src="http://localhost:2000/js/home.js"></script>
+    <script src="http://localhost:2000/js/list.js"></script>
   </body>
 </html>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Home</title>
+    <title>View</title>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
     <link rel="stylesheet" href="http://localhost:2000/css/home.css" />
     <script
@@ -26,11 +26,39 @@
         <hr />
         <h3>AES Key</h3>
         <p id="key" style="word-wrap: break-word;"></p>
+        <hr />
+        <button style="width: 100%;" class="w3-button w3-theme-d4" id="list">
+          All Docs
+        </button>
+        <hr />
+        <button style="width: 100%;" class="w3-button w3-theme-d4" id="logout">
+          Logout
+        </button>
       </div>
       <div style="float: left;">
         <p id="text"></p>
       </div>
+      <div
+        style="float: left;width: 80%;word-wrap: break-word"
+        class="w3-margin-top w3-margin-left"
+      >
+        <p id="encryptedText"></p>
+        <button id="decrypt" class="w3-button w3-theme-d4 w3-margin-bottom">
+          Decrypt
+        </button>
+        <table class="w3-table-all w3-centered w3-hoverable w3-card-4">
+          <thead>
+            <tr class="w3-theme-d4">
+              <th>Algorithm</th>
+              <th>Security</th>
+              <th>Complexity</th>
+              <th>Time</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
     </div>
-    <script src="http://localhost:2000/js/home.js"></script>
+    <script src="http://localhost:2000/js/view.js"></script>
   </body>
 </html>

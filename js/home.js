@@ -22,6 +22,8 @@ $.ajax({
       data.key[i] = data.key[i] / privateKey;
     }
     localStorage.setItem("aeskey", JSON.stringify(data.key));
+    localStorage.setItem("publicKey", JSON.stringify(publicKey));
+    localStorage.setItem("privateKey", JSON.stringify(privateKey));
     $("#publicKey").text("Public Key: " + publicKey);
     $("#privateKey").text("Private Key: " + privateKey);
     $("#key").text(JSON.stringify(data.key));
@@ -45,36 +47,25 @@ $(".my-form").submit(function(event) {
   var aesCtr = new aesjs.ModeOfOperation.ctr(key, new aesjs.Counter(5));
   var encryptedBytes = aesCtr.encrypt(textBytes);
   var encryptedHex = aesjs.utils.hex.fromBytes(encryptedBytes);
-  $("#encrypted").text("Encrypted Text: " + encryptedHex);
-  $("#encrypteddiv").css("display", "inline");
-  // $.ajax({
-  //   url: "http://localhost:2000/api/home/encrypt",
-  //   type: "post",
-  //   data: {
-  //     heading: $("#heading").val(),
-  //     content: JSON.stringify(encryptedBytes)
-  //   },
-  //   dataType: "json",
-  //   success: function(data, textStatus, request) {
-
-  //   },
-  //   error: function(jqXHR, textStatus, errorThrown) {
-  //     console.log(jqXHR, textStatus, errorThrown);
-  //   }
-  // });
-});
-
-$.ajax({
-  url: "http://localhost:2000/api/home/getdoc",
-  type: "get",
-  data: {},
-  dataType: "json",
-  success: function(data, textStatus, request) {
-    tablee(data);
-  },
-  error: function(jqXHR, textStatus, errorThrown) {
-    console.log(jqXHR, textStatus, errorThrown);
-  }
+  sessionStorage.setItem("encryptedText", encryptedHex);
+  //$("#encrypted").text("Encrypted Text: " + encryptedHex);
+  //$("#encrypteddiv").css("display", "inline");
+  $.ajax({
+    url: "http://localhost:2000/api/home/adddoc",
+    type: "post",
+    data: {
+      heading: $("#heading").val(),
+      content: encryptedHex
+    },
+    dataType: "json",
+    success: function(data, textStatus, request) {
+      window.open("http://localhost:2000/view", "_self");
+    },
+    error: function(jqXHR, textStatus, errorThrown) {
+      alert("Failure");
+      console.log(jqXHR, textStatus, errorThrown);
+    }
+  });
 });
 
 function tablee(json) {
@@ -123,3 +114,14 @@ function doit(id) {
   localStorage.setItem("id", id);
   window.open("http://localhost:2000/view", "_self");
 }
+
+$("#list").click(function(e) {
+  e.preventDefault();
+  window.open("http://localhost:2000/list", "_self");
+});
+
+$("#logout").click(function(e) {
+  e.preventDefault();
+  localStorage.removeItem("auth-token");
+  window.open("http://localhost:2000/", "_self");
+});
