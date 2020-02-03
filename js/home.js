@@ -39,6 +39,10 @@ $.ajaxSetup({
   }
 });
 
+$("#home").click(function() {
+  window.open("http://localhost:2000/home", "_self");
+});
+
 $(".my-form").submit(function(event) {
   event.preventDefault();
   var key = localStorage.getItem("aeskey");

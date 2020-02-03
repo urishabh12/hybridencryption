@@ -59,6 +59,10 @@ $("#logout").click(function(e) {
   window.open("http://localhost:2000/", "_self");
 });
 
+$("#home").click(function() {
+  window.open("http://localhost:2000/home", "_self");
+});
+
 $("#decrypt").click(function(e) {
   e.preventDefault();
   var key = localStorage.getItem("aeskey");

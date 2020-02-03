@@ -38,6 +38,10 @@ $.ajax({
   }
 });
 
+$("#home").click(function() {
+  window.open("http://localhost:2000/home", "_self");
+});
+
 $("#list").click(function(e) {
   e.preventDefault();
   window.open("http://localhost:2000/list", "_self");
